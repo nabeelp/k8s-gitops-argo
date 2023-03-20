@@ -1,0 +1,1 @@
+{"appName":"hello-world","userGivenName":"hello-world","destNamespace":"default","destServer":"https://kubernetes.default.svc","srcPath":"apps\\hello-world\\overlays\\test-project","srcRepoURL":"https://github.com/nabeelp/k8s-gitops-argo.git","srcTargetRevision":"","labels":null}
