@@ -21,6 +21,9 @@ spec:
           ports:
             - name: web
               containerPort: 80
+          env:
+            - name: PathBase
+              value: /inspector-gadget/
 ---
 apiVersion: v1
 kind: Service
