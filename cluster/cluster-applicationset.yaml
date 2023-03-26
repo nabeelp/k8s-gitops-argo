@@ -24,6 +24,9 @@ spec:
         path: ''
         repoURL: '{{.chartRepo}}'
         targetRevision: '{{.chartVersion}}'
+        helm:
+          valueFiles:
+          - values.yaml
       project: default
       syncPolicy:
         automated: {}

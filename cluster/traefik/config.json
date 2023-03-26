@@ -1,0 +1,5 @@
+{
+    "chartName": "traefik",
+    "chartRepo": "https://traefik.github.io/charts",
+    "chartVersion": "21.2.0"
+}
