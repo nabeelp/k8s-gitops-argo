@@ -1,0 +1,3 @@
+# Custom values for Traefik - defaults: https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml
+additionalArguments:
+- "--api.insecure=true"
