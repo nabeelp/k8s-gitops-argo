@@ -1,6 +1,6 @@
 {
     "chartName": "kube-prometheus-stack",
     "chartRepo": "https://prometheus-community.github.io/helm-charts",
-    "chartVersion": "45.7.1",
+    "chartVersion": "*",
     "serverSideApply": "true"
 }
