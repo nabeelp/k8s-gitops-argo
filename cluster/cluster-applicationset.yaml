@@ -4,7 +4,6 @@ metadata:
   name: cluster-addons
   namespace: argocd
 spec:
-  goTemplate: true
   generators:
   - git:
       repoURL: https://github.com/nabeelp/k8s-gitops-argo.git
@@ -13,17 +12,17 @@ spec:
       - path: cluster/**/helm-config.json
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: '{{path.basename}}'
     spec:
       destination:
         name: ''
-        namespace: '{{.path.basename}}'
+        namespace: '{{path.basename}}'
         server: https://kubernetes.default.svc
       source:
-        chart: '{{.chartName}}'
+        chart: '{{chartName}}'
         path: ''
-        repoURL: '{{.chartRepo}}'
-        targetRevision: '{{.chartVersion}}'
+        repoURL: '{{chartRepo}}'
+        targetRevision: '{{chartVersion}}'
         helm:
           valueFiles:
           - values.yaml
@@ -32,4 +31,4 @@ spec:
         automated: {}
         syncOptions:
         - CreateNamespace=true
-        - ServerSideApply="{{.serverSideApply}}"
+        - ServerSideApply={{serverSideApply}}
