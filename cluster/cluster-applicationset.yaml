@@ -10,7 +10,7 @@ spec:
       repoURL: https://github.com/nabeelp/k8s-gitops-argo.git
       revision: main
       files:
-      - path: cluster/**/config.json
+      - path: cluster/**/helm-config.json
   template:
     metadata:
       name: '{{.path.basename}}'
@@ -32,4 +32,4 @@ spec:
         automated: {}
         syncOptions:
         - CreateNamespace=true
-        - ServerSideApply=true
+        - ServerSideApply="true"
