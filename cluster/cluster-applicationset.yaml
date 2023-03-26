@@ -20,10 +20,10 @@ spec:
         namespace: '{{.path.basename}}'
         server: https://kubernetes.default.svc
       source:
-        chart: '{{chartName}}'
+        chart: '{{.chartName}}'
         path: ''
-        repoURL: '{{chartRepo}}'
-        targetRevision: '{{chartVersion}}'
+        repoURL: '{{.chartRepo}}'
+        targetRevision: '{{.chartVersion}}'
       project: default
       syncPolicy:
         syncOptions:
