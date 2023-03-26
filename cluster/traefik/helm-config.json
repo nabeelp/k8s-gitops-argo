@@ -1,5 +1,6 @@
 {
     "chartName": "traefik",
     "chartRepo": "https://traefik.github.io/charts",
-    "chartVersion": "21.2.0"
+    "chartVersion": "21.2.0",
+    "serverSideApply": "false"
 }
