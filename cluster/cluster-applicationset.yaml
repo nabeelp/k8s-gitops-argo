@@ -13,17 +13,17 @@ spec:
       - path: cluster/**/config.json
   template:
     metadata:
-      name: {{.path.basename}}
+      name: '{{.path.basename}}'
     spec:
       destination:
         name: ''
         namespace: '{{.path.basename}}'
         server: https://kubernetes.default.svc
       source:
-        chart: {{chartName}}
+        chart: '{{chartName}}'
         path: ''
-        repoURL: {{chartRepo}}
-        targetRevision: {{chartVersion}}
+        repoURL: '{{chartRepo}}'
+        targetRevision: '{{chartVersion}}'
       project: default
       syncPolicy:
         syncOptions:
