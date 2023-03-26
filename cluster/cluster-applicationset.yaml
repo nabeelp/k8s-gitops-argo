@@ -9,20 +9,23 @@ spec:
   - git:
       repoURL: https://github.com/nabeelp/k8s-gitops-argo.git
       revision: main
-      directories:
-      - path: cluster/*
+      files:
+      - path: cluster/**/config.json
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: {{.path.basename}}
     spec:
-      project: "default"
-      source:
-        repoURL: https://github.com/nabeelp/k8s-gitops-argo.git
-        targetRevision: HEAD
-        path: '{{.path.path}}'
       destination:
-        server: https://kubernetes.default.svc
+        name: ''
         namespace: '{{.path.basename}}'
+        server: https://kubernetes.default.svc
+      source:
+        chart: {{chartName}}
+        path: ''
+        repoURL: {{chartRepo}}
+        targetRevision: {{chartVersion}}
+      project: default
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
+        - ServerSideApply=true
