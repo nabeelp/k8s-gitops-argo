@@ -2,5 +2,6 @@
     "chartName": "kube-prometheus-stack",
     "chartRepo": "https://prometheus-community.github.io/helm-charts",
     "chartVersion": "*",
-    "serverSideApply": "true"
+    "serverSideApply": "true",
+    "syncWave": "-5"
 }
