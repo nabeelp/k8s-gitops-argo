@@ -2,5 +2,6 @@
     "chartName": "traefik",
     "chartRepo": "https://traefik.github.io/charts",
     "chartVersion": "*",
-    "serverSideApply": "false"
+    "serverSideApply": "false",
+    "syncWave": "-4"
 }
