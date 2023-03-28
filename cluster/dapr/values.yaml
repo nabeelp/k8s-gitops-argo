@@ -1,0 +1,44 @@
+# Custom values for dapr - defaults: https://github.com/dapr/dapr/blob/master/charts/dapr/values.yaml
+
+# requests and limits = defaults as per table at: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production/#cluster-and-capacity-requirements
+dapr_operator:
+  resources:
+    limits:
+      cpu: 1
+      memory: 200Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+dapr_sidecar_injector.resources:
+  resources:
+    limits:
+      cpu: 1
+      memory: 200Mi
+    requests:
+      cpu: 100m
+      memory: 30Mi
+dapr_sentry.resources:
+  resources:
+    limits:
+      cpu: 1
+      memory: 200Mi
+    requests:
+      cpu: 100m
+      memory: 30Mi
+dapr_placement.resources:
+  resources:
+    limits:
+      cpu: 1
+      memory: 150Mi
+    requests:
+      cpu: 250m
+      memory: 75Mi
+dapr_dashboard.resources:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 200Mi
+    requests:
+      cpu: 50m
+      memory: 20Mi
+
