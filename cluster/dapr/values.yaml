@@ -9,7 +9,7 @@ dapr_operator:
     requests:
       cpu: 100m
       memory: 100Mi
-dapr_sidecar_injector.resources:
+dapr_sidecar_injector:
   resources:
     limits:
       cpu: 1
@@ -17,7 +17,7 @@ dapr_sidecar_injector.resources:
     requests:
       cpu: 100m
       memory: 30Mi
-dapr_sentry.resources:
+dapr_sentry:
   resources:
     limits:
       cpu: 1
@@ -25,7 +25,7 @@ dapr_sentry.resources:
     requests:
       cpu: 100m
       memory: 30Mi
-dapr_placement.resources:
+dapr_placement:
   resources:
     limits:
       cpu: 1
@@ -33,7 +33,7 @@ dapr_placement.resources:
     requests:
       cpu: 250m
       memory: 75Mi
-dapr_dashboard.resources:
+dapr_dashboard:
   resources:
     limits:
       cpu: 200m
@@ -41,4 +41,3 @@ dapr_dashboard.resources:
     requests:
       cpu: 50m
       memory: 20Mi
-
