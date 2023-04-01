@@ -1,7 +1,7 @@
 {
     "chartName": "dapr",
     "chartRepo": "https://dapr.github.io/helm-charts/",
-    "chartVersion": "*",
+    "chartVersion": "1.10.3",
     "serverSideApply": "false",
     "syncWave": "-3"
 }
