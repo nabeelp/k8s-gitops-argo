@@ -28,8 +28,8 @@ spec:
           helm:
             valueFiles:
             - $myRepo/cluster/{{path.basename}}/values.yaml
-        - repoURL: $ARGOCD_APP_SOURCE_REPO_URL
-          targetRevision: $ARGOCD_APP_SOURCE_TARGET_REVISION
+        - repoURL: '{{ARGOCD_APP_SOURCE_REPO_URL}}'
+          targetRevision: '{{$ARGOCD_APP_SOURCE_TARGET_REVISION}}'
           ref: myRepo
       syncPolicy:
         automated: {}
