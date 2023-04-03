@@ -17,18 +17,20 @@ spec:
         argocd.argoproj.io/sync-wave: "{{syncWave}}"
     spec:
       destination:
-        name: ''
         namespace: '{{path.basename}}'
         server: https://kubernetes.default.svc
-      source:
-        chart: '{{chartName}}'
-        path: ''
-        repoURL: '{{chartRepo}}'
-        targetRevision: '{{chartVersion}}'
-        helm:
-          valueFiles:
-          - values.yaml
-      project: default
+      project: cluster-services
+      sources:
+        - chart: '{{chartName}}'
+          path: ''
+          repoURL: '{{chartRepo}}'
+          targetRevision: '{{chartVersion}}'
+          helm:
+            valueFiles:
+            - $myRepo/cluster/{{path.basename}}/values.yaml
+        - repoURL: 'https://github.com/nabeelp/k8s-gitops-argo.git'
+          targetRevision: 'dev'
+          ref: myRepo
       syncPolicy:
         automated: {}
         syncOptions:
