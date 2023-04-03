@@ -4,7 +4,8 @@ function (
     name="jsonnet-guestbook-ui",
     replicas=1,
     servicePort=80, 
-    type="LoadBalancer"
+    type="LoadBalancer",
+    repoUrl="$ARGOCD_APP_SOURCE_REPO_URL"
 )
 [
 {
@@ -34,7 +35,7 @@ function (
                 "targetRevision": "1.10.3"
             },
             {
-                "repoURL": "$ARGOCD_APP_SOURCE_REPO_URL",
+                "repoURL": repoUrl,
                 "targetRevision": "$ARGOCD_APP_SOURCE_TARGET_REVISION",
                 "ref": "myRepo"
             }
