@@ -17,18 +17,20 @@ spec:
         argocd.argoproj.io/sync-wave: "{{syncWave}}"
     spec:
       destination:
-        name: ''
         namespace: '{{path.basename}}'
         server: https://kubernetes.default.svc
-      source:
-        chart: '{{chartName}}'
-        path: ''
-        repoURL: '{{chartRepo}}'
-        targetRevision: '{{chartVersion}}'
-        helm:
-          valueFiles:
-          - values.yaml
-      project: default
+      project: cluster-services
+      sources:
+        - chart: '{{chartName}}'
+          path: ''
+          repoURL: '{{chartRepo}}'
+          targetRevision: '{{chartVersion}}'
+          helm:
+            valueFiles:
+            - $myRepo/cluster/{{path.basename}}/values.yaml
+        - repoURL: $ARGOCD_APP_SOURCE_REPO_URL
+          targetRevision: $ARGOCD_APP_SOURCE_TARGET_REVISION
+          ref: myRepo
       syncPolicy:
         automated: {}
         syncOptions:
