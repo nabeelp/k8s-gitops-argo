@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/nabeelp/k8s-gitops-argo.git
-      revision: development
+      revision: main
       files:
       - path: cluster/common/**/helm-config.json
   template:
@@ -28,7 +28,7 @@ spec:
             valueFiles:
             - $myRepo/cluster/common/{{path.basename}}/values.yaml
         - repoURL: 'https://github.com/nabeelp/k8s-gitops-argo.git'
-          targetRevision: 'development'
+          targetRevision: 'main'
           ref: myRepo
       syncPolicy:
         automated: {}
