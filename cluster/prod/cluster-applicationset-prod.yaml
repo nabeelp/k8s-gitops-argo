@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-addons
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/nabeelp/k8s-gitops-argo.git
+      revision: main
+      files:
+      - path: cluster/common/**/helm-config.json
+  template:
+    metadata:
+      name: '{{path.basename}}'
+      annotations:
+        argocd.argoproj.io/sync-wave: "{{syncWave}}"
+    spec:
+      destination:
+        namespace: '{{path.basename}}'
+        server: https://kubernetes.default.svc
+      project: cluster-services
+      sources:
+        - chart: '{{chartName}}'
+          repoURL: '{{chartRepo}}'
+          targetRevision: '{{chartVersion}}'
+          helm:
+            valueFiles:
+            - $myRepo/cluster/common/{{path.basename}}/values.yaml
+        - repoURL: 'https://github.com/nabeelp/k8s-gitops-argo.git'
+          targetRevision: 'main'
+          ref: myRepo
+      syncPolicy:
+        automated: {}
+        syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply={{serverSideApply}}
