@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/nabeelp/k8s-gitops-argo.git
       revision: development
       files:
-      - path: cluster/**/helm-config.json
+      - path: cluster/common/**/helm-config.json
   template:
     metadata:
       name: '{{path.basename}}'
@@ -27,7 +27,7 @@ spec:
           targetRevision: '{{chartVersion}}'
           helm:
             valueFiles:
-            - $myRepo/cluster/{{path.basename}}/values.yaml
+            - $myRepo/cluster/common/{{path.basename}}/values.yaml
         - repoURL: 'https://github.com/nabeelp/k8s-gitops-argo.git'
           targetRevision: 'development'
           ref: myRepo
