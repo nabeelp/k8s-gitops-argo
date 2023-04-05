@@ -1,0 +1,71 @@
+## Deploy a Prometheus instance
+##
+prometheus:
+
+  ## Settings affecting prometheusSpec
+  ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#prometheusspec
+  ##
+  prometheusSpec:
+  
+    ## Interval between consecutive scrapes.
+    ## Defaults to 30s.
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/release-0.44/pkg/prometheus/promcfg.go#L180-L183
+    ##
+    scrapeInterval: "60s"
+
+    ## Resource limits & requests
+    ##
+    resources:
+      limits:
+        cpu: 200m
+        memory: 1Gi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+
+# Turn off scrapers from some of the Prometheus services in dev, to conserve memory
+
+## Component scraping the kube api server
+##
+kubeApiServer:kubeApiServer:
+  enabled: false
+
+## Component scraping the kubelet and kubelet-hosted cAdvisor
+##
+kubelet:
+  enabled: false
+
+## Component scraping the kube controller manager
+##
+kubeControllerManager:
+  enabled: false
+
+## Component scraping coreDns. Use either this or kubeDns
+##
+coreDns:
+  enabled: false
+
+## Component scraping etcd
+##
+kubeEtcd:
+  enabled: false
+
+## Component scraping kube scheduler
+##
+kubeScheduler:
+  enabled: false
+
+## Component scraping kube proxy
+##
+kubeProxy:
+  enabled: false
+
+## Component scraping kube state metrics
+##
+kubeStateMetrics:
+  enabled: false
+
+## Deploy node exporter as a daemonset to all nodes
+##
+nodeExporter:
+  enabled: false

@@ -1,0 +1,18 @@
+## Deploy a Prometheus instance
+##
+prometheus:
+
+  ## Settings affecting prometheusSpec
+  ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#prometheusspec
+  ##
+  prometheusSpec:
+  
+    ## Resource limits & requests
+    ##
+    resources:
+      limits:
+        cpu: 500m
+        memory: 10Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi

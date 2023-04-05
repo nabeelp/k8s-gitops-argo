@@ -27,6 +27,7 @@ spec:
           helm:
             valueFiles:
             - $myRepo/cluster/common/{{path.basename}}/values.yaml
+            - $myRepo/cluster/common/{{path.basename}}/values-dev.yaml
         - repoURL: 'https://github.com/nabeelp/k8s-gitops-argo.git'
           targetRevision: 'development'
           ref: myRepo
