@@ -19,7 +19,7 @@ spec:
       destination:
         namespace: '{{path.basename}}'
         server: https://kubernetes.default.svc
-      project: cluster-services
+      project: default
       sources:
         - chart: '{{chartName}}'
           repoURL: '{{chartRepo}}'
