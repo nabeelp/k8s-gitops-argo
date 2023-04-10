@@ -1,0 +1,13 @@
+# Custom values for argo-cd - defaults: https://github.com/argoproj/argo-helm/blob/main/charts/argo-cd/values.yaml
+
+## Server
+server:
+  ingress:
+    # -- Enable an ingress resource for the Argo CD server
+    enabled: true
+    # -- Defines which ingress controller will implement the resource
+    ingressClassName: "traefik"
+
+    # -- List of ingress paths
+    paths:
+      - /argocd/
