@@ -15,6 +15,8 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
+Before proceeding to step 2, wait for all argocd pods to be running. 
+
 ### Step 2: Install cluster services for DEV or PROD
 
 Depending on whether you are setting up a DEV or a PROD cluster, execute one of the following commands. The DEV cluster resources use less resources as they exclude services typically involved in cluster management.
