@@ -43,4 +43,4 @@ kubectl delete -n argocd (kubectl -n argocd get pod -l app.kubernetes.io/name=ar
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-What for the argocd-server pod to be running, and then navigate to your cluster by taking the following URL and replacing the text "<cluster-ip-or-fqdn>" with the relevant value for your cluster. Once the login page displays, use the username of `admin` and the password returned from the last command above.
+Wait for the argocd-server pod to be running, and then navigate to your cluster by taking the following URL and replacing the text "<cluster-ip-or-fqdn>" with the relevant value for your cluster: `http://<cluster-ip-or-fqdn>/argocd/`. Once the login page displays, use the username of `admin` and the password returned from the last command above.
