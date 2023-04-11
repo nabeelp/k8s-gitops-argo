@@ -36,7 +36,7 @@ kubectl apply -n argocd -f cluster/prod/
 This involves creating an Ingress rule and then retrieving the intial ArgoCD password.
 
 ```bash
-kubectl apply -n argocd -f cluster/common/traefik/argocd-ingress.yaml
+kubectl apply -n argocd -f cluster/common/argocd/
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
