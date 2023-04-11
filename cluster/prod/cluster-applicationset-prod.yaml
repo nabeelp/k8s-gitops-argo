@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: cluster-services
-  namespace: cluster-services
+  namespace: argocd
 spec:
   clusterResourceWhitelist:
     - group: '*'
@@ -17,7 +17,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: cluster-addons
-  namespace: cluster-services
+  namespace: argocd
 spec:
   generators:
   - git:
