@@ -1,7 +1,0 @@
-{
-    "chartName": "argo-cd",
-    "chartRepo": "https://argoproj.github.io/argo-helm",
-    "chartVersion": "*",
-    "serverSideApply": "false",
-    "syncWave": "-3"
-}

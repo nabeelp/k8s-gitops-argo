@@ -12,7 +12,7 @@ To install ArgoCD into the current clsuter context, execute the following:
 
 ```bash
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
 ### Step 2: Install cluster services for DEV or PROD
@@ -22,12 +22,22 @@ Depending on whether you are setting up a DEV or a PROD cluster, execute one of 
 To setup a DEV cluster, run the following:
 
 ```bash
-kubectl apply -n argocd -f cluster/dev/cluster-applicationset-dev.yaml
+kubectl apply -n argocd -f cluster/dev/
 ```
 
 To setup a PROD cluster, run the following:
 
 ```bash
-kubectl apply -n argocd -f cluster/prod/cluster-applicationset-prod.yaml
+kubectl apply -n argocd -f cluster/prod/
 ```
 
+### Step 3: Setup ArgoCD Ingress and login to ArgoCD UI
+
+This involves creating an Ingress rule and then retrieving the intial ArgoCD password.
+
+```bash
+kubectl apply -n argocd -f cluster/common/traefik/argocd-ingress.yaml
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+
+Navigate to your cluster by taking the following URL and replacing the text "<cluster-ip-or-fqdn>" with the relevant value for your cluster. Once the login page displays, use the username of `admin` and the password returned from the last command above.
