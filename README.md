@@ -12,7 +12,7 @@ To install ArgoCD into the current clsuter context, execute the following:
 
 ```bash
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
 ```
 
 ### Step 2: Install cluster services for DEV or PROD

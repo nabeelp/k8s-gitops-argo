@@ -1,8 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: cluster-services
+  namespace: cluster-services
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
+  sourceRepos:
+    - '*'
+---
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: cluster-addons
-  namespace: argocd
+  namespace: cluster-services
 spec:
   generators:
   - git:
@@ -19,7 +34,7 @@ spec:
       destination:
         namespace: '{{path.basename}}'
         server: https://kubernetes.default.svc
-      project: default
+      project: cluster-services
       sources:
         - chart: '{{chartName}}'
           repoURL: '{{chartRepo}}'
