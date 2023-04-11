@@ -35,11 +35,12 @@ kubectl apply -n argocd -f cluster/prod/
 
 ### Step 3: Setup ArgoCD Ingress and login to ArgoCD UI
 
-This involves creating an Ingress rule and then retrieving the intial ArgoCD password.
+This involves creating some ConfigMap values for the ArgoCD Server, creating an Ingress rule for Argos, restarting the argocd-server pod, and then retrieving the intial ArgoCD password.
 
 ```bash
 kubectl apply -n argocd -f cluster/common/argocd/
+kubectl delete -n argocd (kubectl -n argocd get pod -l app.kubernetes.io/name=argocd-server -o name)
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-Navigate to your cluster by taking the following URL and replacing the text "<cluster-ip-or-fqdn>" with the relevant value for your cluster. Once the login page displays, use the username of `admin` and the password returned from the last command above.
+What for the argocd-server pod to be running, and then navigate to your cluster by taking the following URL and replacing the text "<cluster-ip-or-fqdn>" with the relevant value for your cluster. Once the login page displays, use the username of `admin` and the password returned from the last command above.
